@@ -70,7 +70,7 @@ public class Marksheet {
 
         frame.add(Label1); 
         frame.add(englishField);
-        frame.add(Label2); 
+        frame.add(Label2);
         frame.add(mathField);
         frame.add(Label3); 
         frame.add(scienceField);
