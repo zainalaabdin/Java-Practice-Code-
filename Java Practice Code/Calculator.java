@@ -1,8 +1,19 @@
 import javax.swing.*;
+import java.awt.event.*;
+ 
+public class Calculator implements ActionListener{
 
-public class Calculator {
-    public static void main(String[] args) {
+    JButton addButton = null;
+    JButton subButton = null;
+    JButton mulButton = null;
+    JButton divButton = null;
 
+    JTextField num1Field = null;
+    JTextField num2Field = null;
+    JTextField resultField = null;
+
+    Calculator(){
+     
         JFrame frame = new JFrame("Calculator");
         frame.setSize(400, 300);
         frame.setLayout(null);
@@ -14,7 +25,7 @@ public class Calculator {
         label1.setLocation(20, 30);
         
 
-        JTextField num1Field = new JTextField();
+        num1Field = new JTextField();
         num1Field.setSize(200, 30);
         num1Field.setLocation(130, 30);
 
@@ -24,7 +35,7 @@ public class Calculator {
         label2.setLocation(20, 70);
         
 
-        JTextField num2Field = new JTextField();
+        num2Field = new JTextField();
         num2Field.setSize(200, 30);
         num2Field.setLocation(130, 70);
 
@@ -34,32 +45,36 @@ public class Calculator {
         resultLabel.setLocation(20, 160);
         
 
-        JTextField resultField = new JTextField();
+        resultField = new JTextField();
         resultField.setSize(200, 30);
         resultField.setLocation(130, 160);
         resultField.setEditable(false);
         
 
-        JButton addButton = new JButton("+");
+        addButton = new JButton("+");
         addButton.setSize(60, 30);
         addButton.setLocation(60, 110);
 
 
-        JButton subButton = new JButton("-");
+        subButton = new JButton("-");
         subButton.setSize(60, 30);
         subButton.setLocation(130, 110);
 
 
-        JButton mulButton = new JButton("*");
+        mulButton = new JButton("*");
         mulButton.setSize(60, 30);
         mulButton.setLocation(200, 110);
 
         
-        JButton divButton = new JButton("/");
+        divButton = new JButton("/");
         divButton.setSize(60, 30);
         divButton.setLocation(270, 110);
-        
 
+        addButton.addActionListener(this);
+        subButton.addActionListener(this);
+        mulButton.addActionListener(this);
+        divButton.addActionListener(this);
+        
         frame.add(label1);
         frame.add(num1Field);
         frame.add(num1Field);
@@ -75,5 +90,59 @@ public class Calculator {
 
        
         frame.setVisible(true);
+        
+    }
+
+    public static void main(String[] args) {
+
+        Calculator ob = new Calculator();
+      
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == addButton){
+            String s1 = num1Field.getText();
+            String s2 = num2Field.getText();
+
+            int num1 = Integer.parseInt(s1);
+            int num2 = Integer.parseInt(s2);
+
+            resultField.setText(String.valueOf(num1 + num2));
+                
+        }
+
+        if(e.getSource() == subButton){
+            String s1 = num1Field.getText();
+            String s2 = num2Field.getText();
+
+            int num1 = Integer.parseInt(s1);
+            int num2 = Integer.parseInt(s2);
+
+            resultField.setText(String.valueOf(num1 - num2));
+
+        }
+
+        if(e.getSource() == mulButton){
+            String s1 = num1Field.getText();
+            String s2 = num2Field.getText();
+
+            int num1 = Integer.parseInt(s1);
+            int num2 = Integer.parseInt(s2);
+
+            resultField.setText(String.valueOf(num1 * num2));
+
+        }
+
+        if(e.getSource() == divButton){
+            String s1 = num1Field.getText();
+            String s2 = num2Field.getText();
+
+            int num1 = Integer.parseInt(s1);
+            int num2 = Integer.parseInt(s2);
+
+            resultField.setText(String.valueOf(num1 / num2));
+
+        }
     }
 }
