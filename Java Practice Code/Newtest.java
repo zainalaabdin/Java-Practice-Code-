@@ -7,19 +7,13 @@ public class Newtest {
         Test9 ob = new Test9();
 
         System.out.print("Enter a Number :");
-        int input = sc.nextInt();
-        String output = ob.pattern(input);
-
-        System.out.println(output);
-
-        output = Test9.pattern2(input);
+        int pat = sc.nextInt();
+        String output = ob.pattern(pat);
 
         System.out.println(output);
         
     }
 }
-
-
 
 class Test9{
 
@@ -36,8 +30,11 @@ class Test9{
 
         return out;
     }
+}
 
-    public static String pattern2(int num){
+class Test8{
+
+     public String pattern(int num){
 
         String out = "";
         
