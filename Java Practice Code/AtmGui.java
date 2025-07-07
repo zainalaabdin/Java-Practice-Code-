@@ -49,13 +49,19 @@ public class AtmGui implements ActionListener{
         }
 
         public static void main(String arg[]){
-            AtmGui ob =  new AtmGui();
+            new AtmGui();
             
         }
         public void actionPerformed(ActionEvent e){
 
             if(e.getSource() == noteButton){
-            String s1 = amountField.getText();
+                calculate();
+            }
+    }
+
+
+    public void calculate(){
+         String s1 = amountField.getText();
             int a = Integer.parseInt(s1);
 
             int fth = a / 5000;
@@ -93,6 +99,5 @@ public class AtmGui implements ActionListener{
             result += "1 Note: " + one + "\n";
 
             resultArea.setText(result);
-        }
     }
 }

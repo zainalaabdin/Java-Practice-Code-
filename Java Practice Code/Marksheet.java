@@ -101,7 +101,7 @@ public class Marksheet implements ActionListener {
     }
 
     public static void main(String arg[]){
-        Marksheet ob = new Marksheet();
+        new Marksheet();
     }
 
     public void actionPerformed(ActionEvent e){

@@ -49,14 +49,14 @@ public class Login implements ActionListener {
     }
 
 public static void main(String[] args) {
-    Login ob =  new Login();
+    new Login();
 }
 public void actionPerformed(ActionEvent e){
     String user = userField.getText();
     String pass = String.valueOf(passField.getPassword());
 
     if(user.equals("zain") && pass.equals("123")){
-        JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL");
+        JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFULLY");
         resultLabel.setText("Welcome, Zain");
     }else{
         JOptionPane.showMessageDialog(null, "Please Enter Correct Information");
