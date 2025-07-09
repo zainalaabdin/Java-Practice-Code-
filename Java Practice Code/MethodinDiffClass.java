@@ -34,6 +34,7 @@ public class MethodinDiffClass{
 }
 
     class PatternClass {
+        
     public String pattern(int num) {
         String out = "";
         for (int a = 1; a <= num; a++) {
