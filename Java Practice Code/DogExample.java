@@ -34,7 +34,7 @@ public class DogExample{
     public static void main(String arg[]){
         Dog d1 = new Dog("DOG 1", "DOG1");
         Dog d2 = new Dog("DOG 2", "GOG2");
-
+        
         d1.setName("NEW DOG 1");
         d1.setName("NEW DOG 1.1");
 
