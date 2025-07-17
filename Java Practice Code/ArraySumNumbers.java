@@ -7,6 +7,6 @@ public class ArraySumNumbers {
         for (int i = 0; i < arr.size(); i++) {
             sum += arr.get(i);
         }
-         System.out.println(sum);  
-    }   
+         System.out.println("SUM OF ELEMENTS IS : " + sum);
+    }
 }
