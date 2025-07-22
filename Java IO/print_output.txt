@@ -1,0 +1,3 @@
+Hello from PrintWriter!
+This is line 2.
+Number: 100
