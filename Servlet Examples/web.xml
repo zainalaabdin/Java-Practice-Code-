@@ -1,0 +1,119 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+         version="3.1">
+
+    <servlet>
+        <servlet-name>Calculator</servlet-name>
+        <servlet-class>CalculatorServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Calculator</servlet-name>
+        <url-pattern>/calculate</url-pattern>
+    </servlet-mapping>
+
+     <!-- <servlet>
+        <servlet-name>ActionCalculator</servlet-name>
+        <servlet-class>ActionCalculator</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ActionCalculator</servlet-name>
+        <url-pattern>/calculator-servlet</url-pattern>
+    </servlet-mapping> -->
+	
+	<servlet>
+		<servlet-name>Marksheet</servlet-name>
+		<servlet-class>Marksheet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Marksheet</servlet-name>
+		<url-pattern>/marksheet</url-pattern>
+	</servlet-mapping>
+
+    <servlet>
+        <servlet-name>Atm</servlet-name>
+        <servlet-class>Atm</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Atm</servlet-name>
+        <url-pattern>/atm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Table</servlet-name>
+        <servlet-class>Table</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Table</servlet-name>
+        <url-pattern>/table</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>Registration</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+	
+    <servlet>
+        <servlet-name>ContactUs</servlet-name>
+        <servlet-class>ContactUs</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ContactUs</servlet-name>
+        <url-pattern>/contactus</url-pattern>
+    </servlet-mapping>
+	
+    <servlet>
+        <servlet-name>Admissionform</servlet-name>
+        <servlet-class>Admissionform</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Admissionform</servlet-name>
+        <url-pattern>/admissionform</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Prime</servlet-name>
+        <servlet-class>Prime</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Prime</servlet-name>
+        <url-pattern>/prime</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>YeartoHour</servlet-name>
+        <servlet-class>YeartoHour</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>YeartoHour</servlet-name>
+        <url-pattern>/yeartohour</url-pattern>
+    </servlet-mapping>
+
+     <servlet>
+        <servlet-name>Quizform</servlet-name>
+        <servlet-class>Quizform</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Quizform</servlet-name>
+        <url-pattern>/quizform</url-pattern>
+    </servlet-mapping>
+	
+	
+
+</web-app>
