@@ -1,7 +1,10 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
 
+
+@WebServlet("/marksheet")
 public class Marksheet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -14,9 +17,7 @@ public class Marksheet extends HttpServlet {
             String scienceStr = request.getParameter("sci");
             String mathStr = request.getParameter("math");
             String computerStr = request.getParameter("com");
-            
-        
-        //int eng = 0, urdu = 0, sci = 0, math = 0, com = 0, total = 0;
+                
             String eng = "";
             String urdu = "";
             String sci = "";
@@ -24,6 +25,7 @@ public class Marksheet extends HttpServlet {
             String com = "";
             String totalStr = "";
             String grade = "";
+
             double percentage = 0;
         
 
@@ -40,6 +42,7 @@ public class Marksheet extends HttpServlet {
             sci = scienceStr;
             math = mathStr;
             com = computerStr;
+            
             int total = e + u + s + m + c;
             totalStr = String.valueOf(e + u + s + m + c);
             percentage = ((double) total / 500) * 100;

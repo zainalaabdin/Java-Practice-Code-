@@ -1,7 +1,10 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
 
+
+@WebServlet("/yeartohour")
 public class YeartoHour extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -11,9 +14,9 @@ public class YeartoHour extends HttpServlet {
         String year = request.getParameter("year");
         String hour = "";
         
-        String s = """
-            <html>  <html>
-                """;
+        // String s = """
+        //     <html>  <html>
+        //         """;
 
 
         if (year != null) {

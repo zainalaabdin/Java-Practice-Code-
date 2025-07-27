@@ -1,6 +1,9 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/admission")
 
 public class Admissionform extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -1,6 +1,10 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+
+
+@WebServlet("/registration")
 
 public class Registration extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
