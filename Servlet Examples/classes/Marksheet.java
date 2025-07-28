@@ -1,132 +1,85 @@
-import javax.swing.*;
-import java.awt.event.*;
-
-public class Marksheet implements ActionListener {
-
-    JTextField englishField = null;
-    JTextField mathField = null;
-    JTextField scienceField = null;
-    JTextField totalField = null;
-    JTextField percentField = null;
-    JTextField gradeField = null;
-    JButton calButton = null;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
 
 
-    Marksheet(){
-        JFrame frame = new JFrame("Marksheet");
-        frame.setSize(400, 400);
-        frame.setLayout(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-        JLabel Label1 = new JLabel("ENGLISH");
-        Label1.setSize(100, 30);
-        Label1.setLocation(20, 30);
-
-        englishField = new JTextField();
-        englishField.setSize(200, 30);
-        englishField.setLocation(130, 30);
-
-
-        JLabel Label2 = new JLabel("MATH");
-        Label2.setSize(100, 30);
-        Label2.setLocation(20, 70);
-
-        mathField = new JTextField();
-        mathField.setSize(200, 30);
-        mathField.setLocation(130, 70);
-
-
-        JLabel Label3 = new JLabel("SCIENCE");
-        Label3.setSize(100, 30);
-        Label3.setLocation(20, 110);
-
-        scienceField = new JTextField();
-        scienceField.setSize(200, 30);
-        scienceField.setLocation(130, 110);
-
-
-        calButton = new JButton("CALCULATE");
-        calButton.setSize(200, 30);
-        calButton.setLocation(130, 150);
-        calButton.addActionListener(this);
-
-
-        JLabel totalLabel = new JLabel("TOTAL");
-        totalLabel.setSize(100, 30);
-        totalLabel.setLocation(20, 200);
-
-        totalField = new JTextField();
-        totalField.setSize(200, 30);
-        totalField.setLocation(130, 200);
-        totalField.setEditable(false);
-
-        JLabel percentLabel = new JLabel("PERCENTAGE");
-        percentLabel.setSize(100, 30);
-        percentLabel.setLocation(20, 240);
-
-        percentField = new JTextField();
-        percentField.setSize(200, 30);
-        percentField.setLocation(130, 240);
-        percentField.setEditable(false);
-
-
-        JLabel gradeLabel = new JLabel("GRADE");
-        gradeLabel.setSize(100, 30);
-        gradeLabel.setLocation(20, 280);
-
-
-        gradeField = new JTextField();
-        gradeField.setSize(200, 30);
-        gradeField.setLocation(130, 280);
-
-
-        frame.add(Label1); 
-        frame.add(englishField);
-        frame.add(Label2);
-        frame.add(mathField);
-        frame.add(Label3); 
-        frame.add(scienceField);
-        frame.add(calButton);
-        frame.add(totalLabel); 
-        frame.add(totalField);
-        frame.add(percentLabel); 
-        frame.add(percentField);
-        frame.add(gradeLabel); 
-        frame.add(gradeField);
-
-
-        frame.setVisible(true);
+@WebServlet("/marksheet")
+public class Marksheet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
         
-    }
+            String engStr = request.getParameter("eng");
+            String urduStr = request.getParameter("urdu");
+            String scienceStr = request.getParameter("sci");
+            String mathStr = request.getParameter("math");
+            String computerStr = request.getParameter("com");
+                
+            String eng = "";
+            String urdu = "";
+            String sci = "";
+            String math = "";
+            String com = "";
+            String totalStr = "";
+            String grade = "";
 
-    public static void main(String arg[]){
-        new Marksheet();
-    }
+            double percentage = 0;
+        
 
-    public void actionPerformed(ActionEvent e){
-        int eng = Integer.parseInt(englishField.getText());
-        int math = Integer.parseInt(mathField.getText());
-        int sci = Integer.parseInt(scienceField.getText());
+        if (engStr != null && urduStr != null && scienceStr != null && mathStr!= null && computerStr != null) {
+            
+            int e = Integer.parseInt(engStr);
+            int u = Integer.parseInt(urduStr);
+            int s = Integer.parseInt(scienceStr);
+            int m = Integer.parseInt(mathStr);
+            int c = Integer.parseInt(computerStr);
 
-        int total = eng + math + sci;
-        int percent = (total * 100) / 300;
-
-        String grade = "";
-        if(percent >= 80){
-            grade = "A+";
-        }else if(percent >= 70){
-            grade = "A";
-        }else if(percent >= 60){
-            grade = "B";
-        }else if(percent >= 50){
-            grade = "C";
-        }else{
-            grade = "FAIL";
+            eng = engStr;
+            urdu = urduStr;
+            sci = scienceStr;
+            math = mathStr;
+            com = computerStr;
+            
+            int total = e + u + s + m + c;
+            totalStr = String.valueOf(e + u + s + m + c);
+            percentage = ((double) total / 500) * 100;
+            
+            if (percentage >= 80)
+                grade = "A+";
+                else if (percentage >= 70)
+                grade = "A";
+                else if (percentage >= 60) 
+                grade = "B";
+                else if (percentage >= 50) 
+                grade = "C";
+                else grade = "Fail";
         }
 
-        totalField.setText(String.valueOf(total));
-        percentField.setText(percent + "%");
-        gradeField.setText(String.valueOf(grade));
-    }
+       
+        out.println("<html>");
+        out.println("<head><title>Marksheet</title></head>");
+        out.println("<body>");
+        out.println("<h2>Student Marksheet</h2>");
+        out.println("<form method='get'>");
+       
+        out.println("English Marks: <input name='eng' type='number' value='" + eng + "'/><br><br>");
+        out.println("Urdu Marks: <input name='urdu' type='number' value='" + urdu + "'/><br><br>");
+        out.println("Science Marks: <input name='sci' type='number' value='" + sci + "'/><br><br>");
+        out.println("Math Marks: <input name='math' type='number' value='" + math + "'/><br><br>");
+        out.println("Computer Marks: <input name='com' type='number' value='" + com + "'/><br><br>");
+        
+        out.println("<input type='submit' value='Generate Marksheet'/><br><br>");
+
+        out.println("Total Marks: <input type='text' value='" + totalStr + "' readonly/><br><br>");
+        out.println("Percentage: <input type='text' value='" + percentage + "%' readonly/><br><br>");
+        out.println("Grade: <input type='text' value='" + grade + "' readonly/><br><br>");
+
+        out.println("</form>");
+        out.println("</body>");
+        out.println("</html>");
+		
+	}
 }
