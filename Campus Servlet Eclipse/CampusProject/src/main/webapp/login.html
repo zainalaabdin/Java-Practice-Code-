@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const msg = params.get("message") || params.get("error");
+    if (msg) {
+        document.write("<p style='color:red;'>" + msg.replace(/\+/g, ' ') + "</p>");
+    }
+</script>
+
+
+
+ <form action="loginServlet" method="post">
+    Username: <input type="text" name="username" />
+    Password: <input type="password" name="password" />
+    <input type="submit" value="Login" />
+  </form>
+</body>
+</html>
